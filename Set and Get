@@ -1,0 +1,63 @@
+Public Class Student
+    Private cat, assign, exam As Integer
+    Private regno As String
+    Private grade As Char
+    Private avg As Double
+
+    Public Sub getdetails()
+        Console.WriteLine("Enter cat marks")
+        Pro_cat = CInt(Console.ReadLine())
+
+        Console.WriteLine("Enter assign marks")
+        assign = CInt(Console.ReadLine())
+
+        Console.WriteLine("Enter exam marks")
+        exam = CInt(Console.ReadLine())
+
+        Console.WriteLine("Enter registration number")
+        regno = CStr(Console.ReadLine())
+
+
+    End Sub
+
+    Public Sub determinegrade()
+        avg = cat + assign + exam
+
+        If (avg <= 39) Then
+            grade = CChar("E")
+        ElseIf (avg <= 49) Then
+            grade = CChar("D")
+        ElseIf (avg <= 59) Then
+            grade = CChar("C")
+        ElseIf (avg <= 69) Then
+            grade = CChar("B")
+        Else
+            grade = CChar("A")
+        End If
+    End Sub
+
+    Public Sub print()
+        Console.WriteLine("Cat = " & Pro_cat)
+        Console.WriteLine("Assignment = " & assign)
+        Console.WriteLine("Exam marks = " & exam)
+        Console.WriteLine("Registration number = " & regno)
+        Console.WriteLine("Average = " & avg)
+        Console.WriteLine("Grade = " & grade)
+    End Sub
+    'This is the get and set property
+    Public Property Pro_cat()
+        Get
+            Return cat
+        End Get
+        Set(ByVal value)
+            If value > 30 Or value < 0 Then
+                Console.WriteLine("Cat mark should be greater than 0 and less than or equal to 30")
+                cat = 0
+            Else
+                cat = value
+            End If
+        End Set
+    End Property
+
+
+End Class
